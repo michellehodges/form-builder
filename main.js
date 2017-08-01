@@ -106,7 +106,7 @@ for (i = 0; i < formData.length; i++) {
 
 
   if (formData[i].type === "select") {
-    dropDown.setAttribute("placeholder", formData[i].label);
+    dropDown.setAttribute("placeholder", "formData[i].label");
     dropDown.setAttribute("id", formData[i].id);
     dropDown.setAttribute("icon", formData[i].icon)
 
