@@ -97,4 +97,48 @@ let formData = [
 
 // -------- Your Code Goes Below this Line --------
 
+for (i = 0; i < formData.length; i++) {
 
+  const formField = document.querySelector('#fields')
+  const textField = document.createElement('input')
+  const dropDown = document.createElement('select')
+  const commentField = document.createElement('textarea')
+
+
+  if (formData[i].type === "select") {
+      const langOptions = document.createElement('options')
+      dropDown.appendChild(langOptions)
+
+      langOptions.setAttributes("value", formData[i].options.value)
+      dropDown.setAttribute("placeholder", formData[i].label);
+      dropDown.setAttribute("id", formData[i].id);
+      dropDown.setAttribute("icon", formData[i].icon)
+
+      formField.appendChild(dropDown);
+
+  } else if (formData[i].type === "textarea") {
+      const textArea = document.createElement('textarea')
+      commentField.appendChild(textArea)
+
+      commentField.setAttribute("placeholder", formData[i].label);
+      commentField.setAttribute("id", formData[i].id);
+      commentField.setAttribute("icon", formData[i].icon)
+      commentField.setAttribute("options", formData[i].options)
+
+
+      formField.appendChild(commentField);
+
+  } else {
+      textField.setAttribute("type", formData[i].type)
+      textField.setAttribute("placeholder", formData[i].label);
+      textField.setAttribute("id", formData[i].id);
+      textField.setAttribute("icon", formData[i].icon)
+      textField.setAttribute("options", formData[i].options)
+
+      formField.appendChild(textField);
+  }
+
+
+
+
+}
