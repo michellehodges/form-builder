@@ -106,15 +106,19 @@ for (i = 0; i < formData.length; i++) {
 
 
   if (formData[i].type === "select") {
-      const langOptions = document.createElement('options')
+    dropDown.setAttribute("placeholder", formData[i].label);
+    dropDown.setAttribute("id", formData[i].id);
+    dropDown.setAttribute("icon", formData[i].icon)
+
+    formField.appendChild(dropDown);
+
+    for (let j = 0; j < formData[i].options.length; j++) {
+      const langOptions = document.createElement('option')
       dropDown.appendChild(langOptions)
 
-      langOptions.setAttributes("value", formData[i].options.value)
-      dropDown.setAttribute("placeholder", formData[i].label);
-      dropDown.setAttribute("id", formData[i].id);
-      dropDown.setAttribute("icon", formData[i].icon)
-
-      formField.appendChild(dropDown);
+      langOptions.setAttribute("value", formData[i].options[j].value)
+      langOptions.textContent = formData[i].options[j].label;
+    }
 
   } else if (formData[i].type === "textarea") {
       const textArea = document.createElement('textarea')
@@ -137,8 +141,5 @@ for (i = 0; i < formData.length; i++) {
 
       formField.appendChild(textField);
   }
-
-
-
 
 }
